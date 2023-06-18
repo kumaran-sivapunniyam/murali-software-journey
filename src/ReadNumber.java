@@ -19,6 +19,7 @@ public class ReadNumber {
 		System.out.println( "TOTAL = " + t); // + Concatenation Operator
 		
 		
+		scan.close();
 	}
 
 }
