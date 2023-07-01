@@ -1,48 +1,43 @@
+import java.util.Scanner;
 
 public class SumFinderApp2 {
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 
-		int x = 1;
+		// int numbers[] = { 45, 67, 22, 46, 78, 34, 56, 77, 78, 33 };
+
 		
-		int total = 0;
 		
-		total = calculateSum(x);
+		int numbers[] = new int[5];
+
+		Scanner sc = new Scanner(System.in);
 		
-		//Check if the sum is EVEN or ODD
-		
-		int r = findReminder(total);
-		
-		if( r == 0) {
-			
-			System.out.println("Total is an EVEN number");
-		}
-		else {
-			System.out.println("Total is an ODD nummber");
-		}
-		
-
-	}
-
-	public static int calculateSum(int y) {
-
-		int sum = 0;
-
-		for (int i = 0; i <= y; i++) {
-
-			sum = sum + i;
-
+		for(int x=0; x<numbers.length; x++) {
+			numbers[x] = sc.nextInt();
 		}
 
-		System.out.println("Sum = " + sum);
+		sc.close();
 		
-		return sum;
-	}
-	
-	
-	public static int findReminder(int number) {
 		
-		return (number % 2);
-	}
+		
+		int biggestNumber = numbers[0];
 
+		int smallestNumber = numbers[0];
+
+		for (int i = 1; i < numbers.length; i++) {
+
+			if (biggestNumber < numbers[i]) {
+				biggestNumber = numbers[i];
+			}
+
+			if (smallestNumber > numbers[i]) {
+				smallestNumber = numbers[i];
+			}
+
+		}
+
+		System.out.println("Biggest of all : " + biggestNumber);
+		System.out.println("Smallest of all : " + smallestNumber);
+
+	}
 }
