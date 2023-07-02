@@ -23,26 +23,64 @@ public class RemoveDuplicatesApp {
 			System.out.print(arr[i] + " ");
 	}
 
+	/*
+	 * 
+	 * 
+	 * i A T 0 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 5 6 5 7 5
+	 * 
+	 * 
+	 * previous = next;
+	 * 
+	 * next = arr[i];
+	 * 
+	 */
+
 	public static int[] removeDuplicates(int arr[], int count) {
 		if (count == 0 || count == 1) {
 			return arr;
 		}
-		// creating a temporary array to hold non-duplicate elements
-		int[] temp = new int[count];
-		int j = 0;
-		for (int i = 0; i < count - 1; i++) {
-			if (arr[i] != arr[i + 1]) {
-				temp[j++] = arr[i];
-			}
-		}
-		temp[j++] = arr[count - 1];
 
-		int x[] = new int[j];
-		// copying the temp array to the original array
-		for (int i = 0; i < j; i++) {
-			x[i] = temp[i];
+		int temp[] = new int[count];
+
+		int i = 0;
+		int j = 0;
+
+		temp[j] = arr[i];
+
+		int previous = 0;
+
+		int next = 0;
+
+		previous = arr[i];
+		next = arr[++i];
+
+		do {
+			if (next != previous) {
+				j = j + 1;
+				temp[j] = next;
+
+			}
+
+			previous = next;
+
+			i = i + 1;
+			
+			//To avoid ArrayIndexOutOfBoundException
+			if(i != count) {
+				next = arr[i];
+			}
+			
+		} while (i < count);
+		
+		j = j + 1;
+		int temp2[] = new int[j];
+		
+		for(int x=0; x<j; x++) {
+			temp2[x] = temp[x];
 		}
-		return x;
+		
+		return temp2;
+
 	}
 
 	private static int[] readNumbers() {
