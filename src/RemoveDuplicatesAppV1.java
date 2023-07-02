@@ -1,6 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class RemoveDuplicatesApp {
+public class RemoveDuplicatesAppV1 {
 
 	public static void main(String[] args) {
 
@@ -11,6 +12,7 @@ public class RemoveDuplicatesApp {
 		for (int i = 0; i < arr.length; i++)
 			System.out.print(arr[i] + " ");
 
+		Arrays.sort(arr);
 		// getting the new array size after removing duplicates
 		arr = removeDuplicates(arr, arr.length);
 
