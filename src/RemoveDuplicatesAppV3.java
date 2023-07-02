@@ -19,6 +19,17 @@ public class RemoveDuplicatesAppV3 {
 		Arrays.sort(arr);
 		// getting the new array size after removing duplicates
 		
+		
+		/*
+		 * int i;
+		 * 
+		 * i is a variable of type int.
+		 * meaning: int value can be stored in "i"
+		 * eg. i =10;
+		 * 
+		 * 
+		 * dr is a variable of type DuplicateRemover
+		 */
 		DuplicateRemover dr = new DuplicateRemover();
 		
 		arr = dr.removeDuplicates(arr, arr.length);
