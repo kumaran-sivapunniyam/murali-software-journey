@@ -1,7 +1,11 @@
 import java.util.Arrays;
+import classexamples.DuplicateRemover;
+
 import java.util.Scanner;
 
-public class RemoveDuplicatesAppV1 {
+public class RemoveDuplicatesAppV3 {
+	
+	//RemoveDuplicatesAppV3 ---> DuplicateRemover
 
 	public static void main(String[] args) {
 
@@ -14,7 +18,10 @@ public class RemoveDuplicatesAppV1 {
 
 		Arrays.sort(arr);
 		// getting the new array size after removing duplicates
-		arr = removeDuplicates(arr, arr.length);
+		
+		DuplicateRemover dr = new DuplicateRemover();
+		
+		arr = dr.removeDuplicates(arr, arr.length);
 
 		// for new line
 		System.out.println("");
@@ -24,66 +31,7 @@ public class RemoveDuplicatesAppV1 {
 		for (int i = 0; i < arr.length; i++)
 			System.out.print(arr[i] + " ");
 	}
-
-	/*
-	 * 
-	 * 
-	 * i A T 0 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5 5 6 5 7 5
-	 * 
-	 * 
-	 * previous = next;
-	 * 
-	 * next = arr[i];
-	 * 
-	 */
-
-	public static int[] removeDuplicates(int[] arr, int count) {
-		if (count == 0 || count == 1) {
-			return arr;
-		}
-
-		int temp[] = new int[count];
-
-		int i = 0;
-		int j = 0;
-
-		temp[j] = arr[i];
-
-		int previous = 0;
-
-		int next = 0;
-
-		previous = arr[i];
-		next = arr[++i];
-
-		do {
-			if (next != previous) {
-				j = j + 1;
-				temp[j] = next;
-
-			}
-
-			previous = next;
-
-			i = i + 1;
-			
-			//To avoid ArrayIndexOutOfBoundException
-			if(i != count) {
-				next = arr[i];
-			}
-			
-		} while (i < count);
-		
-		j = j + 1;
-		int temp2[] = new int[j];
-		
-		for(int x=0; x<j; x++) {
-			temp2[x] = temp[x];
-		}
-		
-		return temp2;
-
-	}
+	
 
 	private static int[] readNumbers() {
 		Scanner sc = new Scanner(System.in);
